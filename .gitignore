@@ -1,0 +1,11 @@
+﻿# .NET build output
+bin/
+obj/
+
+# Node packages
+node_modules/
+
+# Editors
+.vs/
+.vscode/
+*.user
