@@ -17,8 +17,6 @@ public partial class ToDoDbContext : DbContext
 
     public virtual DbSet<Item> Items { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Name=ToDoDB");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

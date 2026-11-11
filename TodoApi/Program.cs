@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using TodoApi;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ToDoDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ToDoDB")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ToDoDB")));
 builder.Services.AddCors(options=>options.AddDefaultPolicy(policy=>policy.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin()));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
