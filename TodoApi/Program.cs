@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using TodoApi;
 var builder = WebApplication.CreateBuilder(args);
+var port = Environment.GetEnvironmentVariable("PORT");
+if (port != null)
+    builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 builder.Services.AddDbContext<ToDoDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("ToDoDB")));
 builder.Services.AddCors(options=>options.AddDefaultPolicy(policy=>policy.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin()));
