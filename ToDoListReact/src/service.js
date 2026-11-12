@@ -11,7 +11,7 @@ axios.interceptors.response.use(
 );
 
 
-export default {
+const service = {
   getTasks: async () => {
     const result = await axios.get(`/items`)    
     return result.data;
@@ -34,3 +34,5 @@ export default {
     await axios.delete(`/items/${id}`);
   }
 };
+
+export default service;
