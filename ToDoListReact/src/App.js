@@ -55,43 +55,43 @@ function App() {
   return (
     <main className="todoapp">
       <header className="header">
-        <h1>My Tasks</h1>
-        <p className="subtitle">Well, let's take on the day ☀️</p>
+        <h1>המשימות שלי</h1>
+        <p className="subtitle">יום חדש, משימות חדשות ☀️</p>
       </header>
 
       <form className="add-form" onSubmit={createTodo}>
         <input
           className="new-todo"
-          placeholder="What do you want to do?"
+          placeholder="מה צריך לעשות?"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
         />
         <button className="add-button" type="submit" disabled={!newTodo.trim()}>
-          + Add
+          + הוספה
         </button>
       </form>
 
       <section className="stats">
         <div className="stat stat-total">
           <span className="stat-number">{total}</span>
-          <span className="stat-label">Total</span>
+          <span className="stat-label">סה״כ</span>
         </div>
         <div className="stat stat-remaining">
           <span className="stat-number">{remaining}</span>
-          <span className="stat-label">To do</span>
+          <span className="stat-label">נשארו</span>
         </div>
         <div className="stat stat-done">
           <span className="stat-number">{done}</span>
-          <span className="stat-label">Done</span>
+          <span className="stat-label">בוצעו</span>
         </div>
       </section>
 
-      <div className="progress" aria-label={`${progress}% done`}>
+      <div className="progress" aria-label={`${progress}% בוצעו`}>
         <div className="progress-bar" style={{ width: `${progress}%` }} />
       </div>
 
-      {loading && <p className="message">Loading tasks… (the server may take up to a minute to wake up)</p>}
-      {!loading && total === 0 && <p className="message">No tasks yet. Add your first one! 🌱</p>}
+      {loading && <p className="message">טוען משימות… (בכניסה הראשונה השרת עשוי להתעורר עד דקה)</p>}
+      {!loading && total === 0 && <p className="message">אין עדיין משימות. אפשר להוסיף את הראשונה! 🌱</p>}
 
       <ul className="todo-list">
         {todos.map(todo => {
@@ -102,10 +102,10 @@ function App() {
                 type="checkbox"
                 checked={!!todo.isComplete}
                 onChange={(e) => updateCompleted(todo, e.target.checked)}
-                aria-label="Mark as done"
+                aria-label="סימון כבוצעה"
               />
               <span className="todo-name" dir="auto">{todo.name}</span>
-              <button className="destroy" onClick={() => deleteTodo(todo.id)} aria-label="Delete task" title="Delete">
+              <button className="destroy" onClick={() => deleteTodo(todo.id)} aria-label="מחיקת משימה" title="מחיקה">
                 <TrashIcon />
               </button>
             </li>
